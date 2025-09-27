@@ -1,0 +1,45 @@
+{
+  "name": "@task-shop/apiservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
+    "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "cross-env NODE_ENV=local node lib/index.js",
+    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
+    "format": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\"",
+    "format:check": "prettier --check 'src/**/*.{js,jsx,mjs,cjs,ts,tsx,json}'"
+  },
+  "type": "commonjs",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@thinkcove-lib/base": "^1.0.3",
+    "config": "^4.1.0",
+    "dotenv": "^17.2.0",
+    "moment": "^2.30.1",
+    "mongoose": "^8.16.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@hapi/inert": "^7.1.0",
+    "@hapi/vision": "^7.0.3",
+    "@types/config": "^3.3.5",
+    "@types/hapi-auth-bearer-token": "^6.1.8",
+    "@types/node": "^24.1.0",
+    "blipp": "^4.0.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.38.0",
+    "hapi-auth-bearer-token": "^8.0.0",
+    "hapi-swagger": "^17.3.2",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.38.0"
+  }
+}

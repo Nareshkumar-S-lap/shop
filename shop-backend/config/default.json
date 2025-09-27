@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "app": {
+    "host": "0.0.0.0",
+    "name": "Assesment-Task-Shop-Service",
+    "logLevel": "info",
+    "domains": {
+      "allowed": ["*"]
+    },
+    "env": {
+      "log": false
+    }
+  },
+  "defaultRegion": "IN",
+  "mongoDB": {
+    "timeouts": {
+      "serverSelection": 180000,
+      "socket": 45000,
+      "buffer": 120000
+    }
+  }
+}

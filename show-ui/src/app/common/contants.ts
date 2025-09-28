@@ -1,3 +1,3 @@
 export const CONSTANTS = {
-  BACK_LABEL: "Back"
+  BACK_BUTTON_LABEL: "Back"
 };

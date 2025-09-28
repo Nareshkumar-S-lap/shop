@@ -12,7 +12,7 @@ const BackButton = () => {
       onClick={() => router.back()}
       startIcon={<ArrowBackIcon />}
     >
-      {CONSTANTS.BACK_LABEL}
+      {CONSTANTS.BACK_BUTTON_LABEL}
     </Button>
   );
 };

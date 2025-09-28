@@ -4,8 +4,8 @@ import shopReducer from "@/app/shop/services/shopAction";
 
 export const store = configureStore({
   reducer: {
-    shop: shopReducer,
-  },
+    shop: shopReducer
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;

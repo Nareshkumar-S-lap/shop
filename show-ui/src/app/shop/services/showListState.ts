@@ -1,7 +1,4 @@
-import {
-  ShopDetailResponse,
-  ShopResponse,
-} from "@/app/shop/services/showModel";
+import { ShopDetailResponse, ShopResponse } from "@/app/shop/services/showModel";
 
 // Define the state interface
 export interface ShopState {
@@ -14,4 +11,3 @@ export interface ShopState {
   isLoading: boolean;
   isFetched: boolean;
 }
-

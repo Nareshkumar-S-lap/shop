@@ -1,8 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  ShopDetailResponse,
-  ShopResponse,
-} from "@/app/shop/services/showModel";
+import { ShopDetailResponse, ShopResponse } from "@/app/shop/services/showModel";
 import client from "@/app/common/client";
 
 // Define the type for query params
@@ -23,13 +20,12 @@ export const getShopList = createAsyncThunk<
 >("shop/getShopList", async (params: any, thunkAPI: any) => {
   try {
     const response = await client.get<ShopResponse>("/shop", {
-      params,
+      params
     });
     return response.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue({
-      message:
-        error.response?.data?.message || error.message || "Unknown error",
+      message: error.response?.data?.message || error.message || "Unknown error"
     });
   }
 });

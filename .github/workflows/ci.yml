@@ -8,13 +8,30 @@ on:
       - "shop-ui/**"
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      ui: ${{ steps.filter.outputs.ui }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            backend:
+              - 'shop-backend/**'
+            ui:
+              - 'shop-ui/**'
+
   backend:
     name: Shop Backend Checks
     runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
     defaults:
       run:
         working-directory: shop-backend
-    if: contains(github.event.pull_request.changed_files, 'shop-backend/')
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,10 +45,11 @@ jobs:
   ui:
     name: Shop UI Checks
     runs-on: ubuntu-latest
+    needs: changes
+    if: needs.changes.outputs.ui == 'true'
     defaults:
       run:
         working-directory: shop-ui
-    if: contains(github.event.pull_request.changed_files, 'shop-ui/')
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

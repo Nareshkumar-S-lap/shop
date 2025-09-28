@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRouter } from "next/navigation";
-
+import { CONSTANTS } from "@/app/common/contants";
 const BackButton = () => {
   const router = useRouter();
 
@@ -12,7 +12,7 @@ const BackButton = () => {
       onClick={() => router.back()}
       startIcon={<ArrowBackIcon />}
     >
-      Back
+      {CONSTANTS.BACK_BUTTON_LABEL}
     </Button>
   );
 };

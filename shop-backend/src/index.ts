@@ -48,6 +48,7 @@ const init = async () => {
 (async () => {
   try {
     await mongoConnect();
+    
     await init();
   } catch (e) {
     logger.error(e);

@@ -1,0 +1,42 @@
+name: Shop CI - Format, Lint, Build
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "shop-backend/**"
+      - "shop-ui/**"
+
+jobs:
+  backend:
+    name: Shop Backend Checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shop-backend
+    if: contains(github.event.pull_request.changed_files, 'shop-backend/')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run build
+
+  ui:
+    name: Shop UI Checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shop-ui
+    if: contains(github.event.pull_request.changed_files, 'shop-ui/')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build

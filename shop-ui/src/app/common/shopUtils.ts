@@ -1,8 +1,3 @@
-export const getProductCount = (shopId: string): number => {
-  const seed = shopId.charCodeAt(0) + shopId.length;
-  return 3 + (seed % 12); // Random between 3-15
-};
-
 export const getShopColor = (shopName: string): string => {
   const colors = [
     "#1976d2",
@@ -20,8 +15,4 @@ export const getShopColor = (shopName: string): string => {
 
 export const formatShopName = (shopName: string): string => {
   return shopName.replace(/\b\w+\b$/, (match) => match.split(" ").pop() || "");
-};
-
-export const formatShopAddress = (address: any): string => {
-  return `${address.city}, ${address.state} ${address.postal_code}`;
 };

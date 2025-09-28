@@ -4,7 +4,10 @@ import { errorMessage, successMessage } from '@common/responseHelper';
 import LocalUtils from '@common/utils/localUtils';
 import { getShopByIdWithBranch, getShopList } from '@domain/dao/shopDao';
 import { INVENTORY_STATUS_TEXT } from '@common/enum/enums';
-import { getShopInventoryByShopId } from '@domain/dao/inventoryDao';
+import {
+  getProductCount,
+  getShopInventoryByShopId,
+} from '@domain/dao/inventoryDao';
 
 //Check if inventory needs reorder
 const needsReorder = (quantity: number, reorderLevel: number) => {
@@ -26,9 +29,54 @@ const buildShopFilter = (name?: string, address?: string) => {
   return filter;
 };
 
+// Build main branches map and shopIdToBranches
+const buildMainBranchesMap = (matchedShops: any[]) => {
+  const mainBranchesMap = new Map<string, any>();
+  const shopIdToBranches: Record<string, string[]> = {};
+
+  matchedShops.forEach((shop: any) => {
+    const mainBranch = shop.is_main_branch ? shop : shop.parent_shop;
+    if (!mainBranch) return;
+
+    if (!mainBranchesMap.has(mainBranch.id)) {
+      mainBranchesMap.set(mainBranch.id, {
+        ...mainBranch,
+        address: LocalUtils.formatAddress(shop.address),
+        metadata: {
+          ...mainBranch.metadata,
+          holiday_list: Array.isArray(mainBranch.metadata?.holiday_list)
+            ? LocalUtils.mapHolidayList(mainBranch.metadata.holiday_list)
+            : [],
+        },
+        branch_count: 0,
+        product_count: 0,
+      });
+      shopIdToBranches[mainBranch.id] = [mainBranch._id.toString()];
+    }
+
+    if (!shop.is_main_branch) {
+      mainBranchesMap.get(mainBranch.id)!.branch_count += 1;
+      shopIdToBranches[mainBranch.id].push(shop._id.toString());
+    }
+  });
+  return { mainBranchesMap, shopIdToBranches };
+};
+
+//Count products for each main branch
+const countProductsForBranches = async (
+  mainBranchesMap: Map<string, any>,
+  shopIdToBranches: Record<string, string[]>,
+) => {
+  const mainBranchIds = Array.from(mainBranchesMap.keys());
+  for (const mainBranchId of mainBranchIds) {
+    const shopIds = shopIdToBranches[mainBranchId];
+    const productCount = await getProductCount(shopIds);
+    mainBranchesMap.get(mainBranchId)!.product_count = productCount;
+  }
+};
+
 export const shopList = async (name?: string, address?: string) => {
   const filter = buildShopFilter(name, address);
-
   const matchedShops: any = await getShopList(filter);
 
   if (!matchedShops?.length) {
@@ -39,30 +87,9 @@ export const shopList = async (name?: string, address?: string) => {
     );
   }
 
-  const mainBranchesMap = new Map<string, any>();
-
-  matchedShops.forEach((shop: any) => {
-    const mainBranch = shop.is_main_branch ? shop : shop.parent_shop;
-    if (!mainBranch) return;
-
-    if (!mainBranchesMap.has(mainBranch.id)) {
-      mainBranchesMap.set(mainBranch.id, {
-        ...mainBranch,
-        metadata: {
-          ...mainBranch.metadata,
-          holiday_list: Array.isArray(mainBranch.metadata?.holiday_list)
-            ? LocalUtils.mapHolidayList(mainBranch.metadata.holiday_list)
-            : [],
-        },
-        branch_count: 0,
-      });
-    }
-
-    if (!shop.is_main_branch) {
-      mainBranchesMap.get(mainBranch.id)!.branch_count += 1;
-    }
-  });
-
+  const { mainBranchesMap, shopIdToBranches } =
+    buildMainBranchesMap(matchedShops);
+  await countProductsForBranches(mainBranchesMap, shopIdToBranches);
   const formattedResult = Array.from(mainBranchesMap.values());
 
   return successMessage(

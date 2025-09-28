@@ -60,12 +60,13 @@ export interface Shop {
   code: string;
   is_main_branch: boolean;
   parent_shop: string | null;
-  address: ShopAddress;
+  address: string;
   contact: ShopContact;
   metadata: ShopMetadata;
   createdAt: string;
   updatedAt: string;
   branch_count: number;
+  product_count: number;
 }
 
 export interface ShopResponse {

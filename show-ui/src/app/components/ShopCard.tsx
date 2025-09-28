@@ -88,7 +88,7 @@ const ShopCard: React.FC<ShopCardProps> = ({ shop, onClick }) => {
           </Typography>
         </Box>
 
-        <Button
+        {/* <Button
           variant="text"
           size="small"
           sx={{
@@ -99,7 +99,7 @@ const ShopCard: React.FC<ShopCardProps> = ({ shop, onClick }) => {
           }}
         >
           {SHOP_MESSAGES.VIEW_DETAILS}
-        </Button>
+        </Button> */}
       </CardContent>
     </Card>
   );

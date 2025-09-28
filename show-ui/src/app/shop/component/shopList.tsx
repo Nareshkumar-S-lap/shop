@@ -8,12 +8,11 @@ import {
   TextField,
   InputAdornment,
   Button,
-  Grid,
   Paper
 } from "@mui/material";
 import { Search as SearchIcon, Clear as ClearIcon, Store as StoreIcon } from "@mui/icons-material";
 import { Shop } from "../services/showModel";
-import SkeletonShopCard from "@/app/components/SkeletonShopCard";
+import SkeletonShopCard from "@/app/components/skeletons/SkeletonShopCard";
 import {
   SHOP_COLORS,
   SHOP_UI_CONFIG,
@@ -141,13 +140,15 @@ const ShopListPage: React.FC<ShopListPageProps> = ({
 
       {/* Loading */}
       {isLoading && (
-        <Grid container spacing={3}>
+        <Box
+          display="grid"
+          gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" }}
+          gap={3}
+        >
           {Array.from({ length: 6 }).map((_, index) => (
-            <Grid item xs={12} md={6} lg={4} key={index}>
-              <SkeletonShopCard />
-            </Grid>
+            <SkeletonShopCard key={index} />
           ))}
-        </Grid>
+        </Box>
       )}
 
       {/* Error */}
@@ -164,13 +165,19 @@ const ShopListPage: React.FC<ShopListPageProps> = ({
 
       {/* Shops */}
       {!isLoading && !isError && hasShops && (
-        <Grid container spacing={3}>
+        <Box
+          display="grid"
+          gridTemplateColumns={{ xs: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" }}
+          gap={3}
+        >
           {shops!.map((shop) => (
-            <Grid item xs={12} md={6} lg={4} key={shop._id}>
-              <ShopCard shop={shop} onClick={() => push(SHOP_ROUTES.SHOP_DETAIL(shop.id))} />
-            </Grid>
+            <ShopCard
+              key={shop._id}
+              shop={shop}
+              onClick={() => push(SHOP_ROUTES.SHOP_DETAIL(shop.id))}
+            />
           ))}
-        </Grid>
+        </Box>
       )}
 
       {/* No Results */}

@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getShopList, getShopDetails } from "@/app/shop/services/shopService";
 import { ShopResponse, ShopDetailResponse } from "@/app/shop/services/showModel";
 import { ShopState } from "@/app/shop/services/showListState";
+import { rejectedState, pendingState, fulfilledState } from "@/app/common/state";
 
 // Initial state
 const initialState: ShopState = {
@@ -13,25 +14,6 @@ const initialState: ShopState = {
   isError: false,
   isLoading: false,
   isFetched: false
-};
-
-// Helpers
-const pendingState = (state: any) => {
-  state.isLoading = true;
-  state.isError = false;
-  state.isFetched = false;
-};
-
-const fulfilledState = (state: any) => {
-  state.isLoading = false;
-  state.isError = false;
-  state.isFetched = true;
-};
-
-const rejectedState = (state: any) => {
-  state.isLoading = false;
-  state.isError = true;
-  state.isFetched = true;
 };
 
 // Slice

@@ -2,10 +2,14 @@ import { ERROR } from '@common/constants/errorConstant';
 import { SUCCESS } from '@common/constants/successConstant';
 import { errorMessage, successMessage } from '@common/responseHelper';
 import LocalUtils from '@common/utils/localUtils';
-import { getShopList } from '@domain/dao/shopDao';
-import { Item } from '@domain/model/productItemModel';
-import { Inventory } from '@domain/model/inventoryModel';
-import { Shop } from '@domain/model/shopModel';
+import { getShopByIdWithBranch, getShopList } from '@domain/dao/shopDao';
+import { INVENTORY_STATUS_TEXT } from '@common/enum/enums';
+import { getShopInventoryByShopId } from '@domain/dao/inventoryDao';
+
+//Check if inventory needs reorder
+const needsReorder = (quantity: number, reorderLevel: number) => {
+  return quantity <= reorderLevel;
+};
 
 // Build generic filter for name and address
 const buildShopFilter = (name?: string, address?: string) => {
@@ -68,62 +72,95 @@ export const shopList = async (name?: string, address?: string) => {
   );
 };
 
-export const shopDetails = async (id: string) => {
-  // 1️⃣ Fetch main shop with branch shops populated (virtual)
-  const mainShop: any = await Shop.findOne({ id, isActive: true })
-    .populate('branches')
-    .lean();
+//Returns standardized shop-not-found response
+const shopNotFound = () =>
+  errorMessage(
+    ERROR.ERROR_MESSAGE.SHOP_NOT_FOUND,
+    ERROR.ERROR_CODE.SHOP_NOT_FOUND,
+    [],
+  );
+
+// Format inventory item details
+const formatInventoryItem = (inv: any) => {
+  const item = inv.item_detail;
+  return {
+    item_code: item.item_code,
+    item_name: item.name,
+    description: item.description || '',
+    category: item.category,
+    brand: item.brand || '',
+    unit: item.unit,
+    tags: item.tags || [],
+    price: inv.price,
+    quantity: inv.quantity,
+    reorder_level: inv.reorder_level,
+    status: INVENTORY_STATUS_TEXT[inv.status] || '-',
+    needsReorder: needsReorder(inv.quantity, inv.reorder_level),
+  };
+};
+
+// Build shop map from inventories
+const buildShopMap = (inventories: any[], mainShop: any) => {
+  const shopMap: Record<string, any> = {};
+
+  inventories.forEach((inv: any) => {
+    const shop = inv.shop_detail;
+    const shopIdStr = shop._id.toString();
+
+    // Only add main shop once
+    if (!shopMap[shopIdStr]) {
+      const formattedMetadata = {
+        ...shop.metadata,
+        holiday_list: Array.isArray(shop.metadata?.holiday_list)
+          ? LocalUtils.mapHolidayList(shop.metadata.holiday_list)
+          : [],
+      };
+      shopMap[shopIdStr] = {
+        id: shop.id,
+        _id: shop._id,
+        name: shop.name,
+        code: shop.code,
+        isMain: shop.is_main_branch,
+        address: LocalUtils.formatAddress(shop.address),
+        contact: shop.contact || {},
+        metadata: formattedMetadata,
+        branchCount: shop.is_main_branch ? mainShop.branches?.length || 0 : 0,
+        inventory: [],
+      };
+    }
+
+    shopMap[shopIdStr].inventory.push(formatInventoryItem(inv));
+  });
+
+  return shopMap;
+};
+
+// Get shop details
+export const shopDetails = async (shopId: string) => {
+  const mainShop: any = await getShopByIdWithBranch(shopId);
   if (!mainShop) {
-    return errorMessage(
-      'ERROR.ERROR_MESSAGE.SHOP_NOT_FOUND',
-      'ERROR.ERROR_CODE.SHOP_NOT_FOUND',
-      [],
-    );
+    return shopNotFound();
   }
 
-  // Map holiday_list nicely
-  mainShop.metadata.holiday_list = Array.isArray(
-    mainShop.metadata?.holiday_list,
-  )
-    ? LocalUtils.mapHolidayList(mainShop.metadata.holiday_list)
-    : [];
+  const shopIds = [
+    mainShop._id,
+    ...(mainShop.branches?.map((b: any) => b._id) || []),
+  ];
 
-  // 2️⃣ Fetch inventory for main shop
-  const mainInventory = await Inventory.find({ shop: mainShop._id.toString() })
-    .populate('item')
-    .lean();
+  if (!shopIds.length) {
+    return shopNotFound();
+  }
 
-  // 3️⃣ Fetch inventories for all branch shops
-  const branchShopIds = mainShop.branches.map((b: any) => b._id);
-  const branchInventories = await Inventory.find({
-    shop: { $in: branchShopIds },
-  })
-    .populate('item')
-    .lean();
+  const inventories: any = await getShopInventoryByShopId(shopIds);
+  if (!inventories?.length) {
+    return shopNotFound();
+  }
 
-  // 4️⃣ Attach inventories to branches
-  const branchesWithInventory = mainShop.branches.map((branch: any) => ({
-    ...branch,
-    inventory: branchInventories.filter(
-      (inv) => inv.shop.toString() === branch._id.toString(),
-    ),
-    metadata: {
-      ...branch.metadata,
-      holiday_list: Array.isArray(branch.metadata?.holiday_list)
-        ? LocalUtils.mapHolidayList(branch.metadata.holiday_list)
-        : [],
-    },
-  }));
-
-  // 5️⃣ Format result
-  const result = {
-    main_shop: { ...mainShop, inventory: mainInventory },
-    branches: branchesWithInventory,
-  };
+  const shopMap = buildShopMap(inventories, mainShop);
 
   return successMessage(
-    'SUCCESS.SUCCESS_MESSAGE.SHOP_DETAILS_FETCHED',
-    'SUCCESS.SUCCESS_CODE.SHOP_DETAILS_FETCHED',
-    result,
+    SUCCESS.SUCCESS_MESSAGE.SHOP_DETAILS_FETCHED,
+    SUCCESS.SUCCESS_CODE.SHOP_DETAILS_FETCHED,
+    Object.values(shopMap),
   );
 };

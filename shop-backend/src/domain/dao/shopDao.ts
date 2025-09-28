@@ -1,3 +1,4 @@
+import { Item } from '@domain/model/productItemModel';
 import { Shop } from '@domain/model/shopModel';
 
 export const getShopList = async (payload: any) =>
@@ -5,3 +6,9 @@ export const getShopList = async (payload: any) =>
 
 export const getShopById = async (id: string) =>
   Shop.findOne({ id, isActive: true }).lean();
+
+export const getShopItem = async (id: string) =>
+  Item.findOne({ id, isActive: true }).lean();
+
+export const getShopByIdWithBranch = async (id: string) =>
+  Shop.findOne({ id, isActive: true }).populate('branches').lean();

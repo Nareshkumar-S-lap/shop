@@ -18,10 +18,25 @@ const seedDatabase = async () => {
     await Item.deleteMany({});
     await Inventory.deleteMany({});
 
+    //  Drop indexes from all collections
+    for (const model of [Shop, Item, Inventory]) {
+      try {
+        await model.collection.dropIndexes();
+        logger.info(`Dropped indexes for ${model.modelName}`);
+      } catch (e: any) {
+        if (e.code === 26) {
+          // NamespaceNotFound → collection didn’t exist yet
+          logger.info(`No indexes found for ${model.modelName}, skipping`);
+        } else {
+          throw e;
+        }
+      }
+    }
+
     const shopsMap: Record<string, any> = {};
     const itemsMap: Record<string, any> = {};
 
-    // Insert Shops (main + branches)
+    //  Insert Shops (main + branches)
     for (const shop of seedData.shops) {
       let parentShopId = null;
       if (shop.parent_shop_code) {
@@ -35,25 +50,26 @@ const seedDatabase = async () => {
       });
       shopsMap[shop.code] = createdShop;
     }
-
+    logger.info('Shops inserted');
     // Insert Items
     for (const item of seedData.items) {
       const createdItem = await Item.create(item);
       itemsMap[item.item_code] = createdItem;
     }
-
+    logger.info('Items inserted');
     // Insert Inventory
     for (const inv of seedData.inventory) {
       await Inventory.create({
         id: inv.id,
-        shop: shopsMap[inv.shop_code]._id,
-        item: itemsMap[inv.item_code]._id,
+        shop_detail: shopsMap[inv.shop_code]._id,
+        item_detail: itemsMap[inv.item_code]._id,
         price: inv.price,
         quantity: inv.quantity,
-       reorder_level: inv.reorder_level ?? 10,
-       status: Number(inv.status) as InventoryStatus,
+        reorder_level: inv.reorder_level ?? 10,
+        status: Number(inv.status) as InventoryStatus,
       });
-    } 
+    }
+    logger.info('Inventory inserted');
 
     logger.info('Database seeded successfully!');
     process.exit(0);

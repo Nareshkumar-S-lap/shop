@@ -1,9 +1,14 @@
-
 export enum InventoryStatus {
-    OUT_OF_STOCK = 0,
-    LOW_STOCK = 1,
-    IN_STOCK = 2,
+  OUT_OF_STOCK = 0,
+  LOW_STOCK = 1,
+  IN_STOCK = 2,
 }
+
+export const INVENTORY_STATUS_TEXT: Record<number, string> = {
+  0: 'Out of Stock',
+  1: 'Low Stock',
+  2: 'In Stock',
+};
 
 // Enum for weekdays
 export enum WeekDays {

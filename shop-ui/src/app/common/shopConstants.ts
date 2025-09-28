@@ -1,5 +1,3 @@
-// constants/shopConstants.ts
-
 export const SHOP_UI_CONFIG = {
   CONTAINER_MAX_WIDTH: "xl",
   PADDING_Y: 4,

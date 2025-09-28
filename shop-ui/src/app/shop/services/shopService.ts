@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ShopDetailResponse, ShopResponse } from "@/app/shop/services/showModel";
 import client from "@/app/common/client";
+import { ShopResponse, ShopDetailResponse } from "@/app/shop/services/showModel";
 
 // Define the type for query params
 interface ShopQueryParams {
@@ -13,15 +13,14 @@ interface ErrorResponse {
   message: string;
 }
 
+// Get Shop List
 export const getShopList = createAsyncThunk<
   ShopResponse, // Return type
-  ShopQueryParams, // Payload type (query params)
-  { rejectValue: ErrorResponse } // Typed error for rejectWithValue
->("shop/getShopList", async (params: any, thunkAPI: any) => {
+  ShopQueryParams, // Payload type
+  { rejectValue: ErrorResponse } // Reject type
+>("shop/getShopList", async (params, thunkAPI) => {
   try {
-    const response = await client.get<ShopResponse>("/shop", {
-      params
-    });
+    const response = await client.get<ShopResponse>("/shop", { params });
     return response.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue({
@@ -30,10 +29,18 @@ export const getShopList = createAsyncThunk<
   }
 });
 
-export const getShopDetails = createAsyncThunk<ShopDetailResponse, string>(
-  "shop/getShopDetails",
-  async (id: string) => {
+// Get Shop Details
+export const getShopDetails = createAsyncThunk<
+  ShopDetailResponse, // Return type
+  string, // Payload type (shop id)
+  { rejectValue: ErrorResponse } // Reject type
+>("shop/getShopDetails", async (id, thunkAPI) => {
+  try {
     const response = await client.get<ShopDetailResponse>(`/shop/${id}`);
     return response.data;
+  } catch (error: any) {
+    return thunkAPI.rejectWithValue({
+      message: error.response?.data?.message || error.message || "Unknown error"
+    });
   }
-);
+});

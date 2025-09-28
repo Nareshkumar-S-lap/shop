@@ -1,11 +1,10 @@
-'use client'
+"use client";
 
 import React from "react";
-import ShopListPage from "./list/page";
-
+import ShopContainer from "@/app/shop/component/shopContainer";
 
 const ShopPage: React.FC = () => {
-  return <ShopListPage />;
+  return <ShopContainer />;
 };
 
 export default ShopPage;

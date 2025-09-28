@@ -9,16 +9,15 @@ import StoreProvider from "./providers/storeProvider";
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  display: "swap",
+  display: "swap"
 });
 
 export const metadata: Metadata = {
   title: "Shop Management",
-  description:
-    "Application to manage shops, inventory, and branches effectively.",
+  description: "Application to manage shops, inventory, and branches effectively."
 };
 export default async function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

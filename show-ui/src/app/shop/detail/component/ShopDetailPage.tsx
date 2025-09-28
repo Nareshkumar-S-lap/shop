@@ -5,11 +5,10 @@ import { useParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/app/store/store";
 import { getShopDetails } from "@/app/shop/services/shopService";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-
 import InventoryTable from "@/app/components/inventory/InventoryTable";
 import InventoryCard from "@/app/components/inventory/InventoryCard";
 import BackButton from "@/app/components/BackButton";
-import ShopCardDetailViewSkeleton from "@/app/components/ShopCardDetailViewSkeleton";
+import ShopCardDetailViewSkeleton from "@/app/components/skeletons/ShopCardDetailViewSkeleton";
 
 const ShopDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

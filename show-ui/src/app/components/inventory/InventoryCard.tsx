@@ -1,18 +1,33 @@
 "use client";
 import React from "react";
-import { Grid, Card, CardContent, Typography, Box, Chip } from "@mui/material";
+import { Card, CardContent, Typography, Box, Chip } from "@mui/material";
 
-const InventoryCard: React.FC<{ inventory: any[] }> = ({ inventory }) => {
+interface InventoryItem {
+  item_code: string;
+  item_name: string;
+  category: string;
+  brand: string;
+  quantity: number;
+  price: number;
+  status: string;
+  needsReorder: boolean;
+}
+
+const InventoryCard: React.FC<{ inventory: InventoryItem[] }> = ({ inventory }) => {
   return (
-    <Grid container spacing={2}>
+    <Box display="flex" flexWrap="wrap" gap={2}>
       {inventory.map((item) => (
-        <Grid item xs={12} key={item.item_code}>
+        <Box
+          key={item.item_code}
+          flex="1 1 calc(50% - 16px)" // 2 per row on medium+ screens
+          minWidth={280} // fallback for small screens
+        >
           <Card variant="outlined">
             <CardContent>
               <Typography variant="subtitle1" gutterBottom>
                 {item.item_name}
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="text.secondary">
                 Code: {item.item_code}
               </Typography>
               <Typography>Category: {item.category}</Typography>
@@ -30,7 +45,7 @@ const InventoryCard: React.FC<{ inventory: any[] }> = ({ inventory }) => {
                         : "success"
                   }
                   size="small"
-                  className="mr-2"
+                  sx={{ mr: 1 }}
                 />
                 <Chip
                   label={item.needsReorder ? "Reorder Needed" : "Stock OK"}
@@ -40,9 +55,9 @@ const InventoryCard: React.FC<{ inventory: any[] }> = ({ inventory }) => {
               </Box>
             </CardContent>
           </Card>
-        </Grid>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   );
 };
 

@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import { Card, CardContent, Grid, Skeleton, useMediaQuery, useTheme } from "@mui/material";
+import { Card, CardContent, Skeleton, useMediaQuery, useTheme, Box } from "@mui/material";
 
 const ShopCardDetailViewSkeleton: React.FC = () => {
   const theme = useTheme();
@@ -17,8 +18,13 @@ const ShopCardDetailViewSkeleton: React.FC = () => {
         <Skeleton variant="rectangular" height={1} className="my-2" />
 
         {/* Contact & Shop Info Skeleton */}
-        <Grid container spacing={2} className="mt-1 mb-3">
-          <Grid item xs={12} md={6}>
+        <Box
+          display="flex"
+          flexDirection={isMobile ? "column" : "row"}
+          gap={2}
+          className="mt-1 mb-3"
+        >
+          <Box flex={1}>
             {[...Array(5)].map((_, i) => (
               <Skeleton
                 key={i}
@@ -28,8 +34,8 @@ const ShopCardDetailViewSkeleton: React.FC = () => {
                 className="mb-1"
               />
             ))}
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </Box>
+          <Box flex={1}>
             {[...Array(5)].map((_, i) => (
               <Skeleton
                 key={i}
@@ -39,21 +45,19 @@ const ShopCardDetailViewSkeleton: React.FC = () => {
                 className="mb-1"
               />
             ))}
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
 
         {/* Divider */}
         <Skeleton variant="rectangular" height={1} className="my-2" />
 
         {/* Inventory Skeleton */}
         {isMobile ? (
-          <Grid container spacing={2}>
+          <Box display="flex" flexDirection="column" gap={2}>
             {[...Array(2)].map((_, i) => (
-              <Grid item xs={12} key={i}>
-                <Skeleton variant="rectangular" height={120} />
-              </Grid>
+              <Skeleton key={i} variant="rectangular" height={120} />
             ))}
-          </Grid>
+          </Box>
         ) : (
           <Skeleton variant="rectangular" height={200} />
         )}

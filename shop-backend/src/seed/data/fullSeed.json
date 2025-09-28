@@ -1,7 +1,7 @@
 {
   "shops": [
     {
-      "id": "shop001",
+      "id": "e7b7c2e2-1c2a-4e7a-9b2e-1c2a4e7a9b2e",
       "name": "Techno Hub Chennai",
       "code": "TN001",
       "is_main_branch": true,
@@ -25,7 +25,7 @@
       }
     },
     {
-      "id": "shop002",
+      "id": "a1f2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c",
       "name": "ElectroMart Coimbatore",
       "code": "TN002",
       "is_main_branch": true,
@@ -49,7 +49,7 @@
       }
     },
     {
-      "id": "shop003",
+      "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
       "name": "Circuit World Madurai",
       "code": "TN003",
       "is_main_branch": true,
@@ -73,7 +73,7 @@
       }
     },
     {
-      "id": "shop004",
+      "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
       "name": "Gadget King Salem",
       "code": "TN004",
       "is_main_branch": true,
@@ -97,7 +97,7 @@
       }
     },
     {
-      "id": "shop005",
+      "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
       "name": "Electronica Trichy",
       "code": "TN005",
       "is_main_branch": true,
@@ -121,7 +121,7 @@
       }
     },
     {
-      "id": "shop006",
+      "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b",
       "name": "Techno Hub Chennai - OMR Branch",
       "code": "TN006",
       "is_main_branch": false,
@@ -146,7 +146,7 @@
       }
     },
     {
-      "id": "shop007",
+      "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c",
       "name": "ElectroMart Coimbatore - Peelamedu Branch",
       "code": "TN007",
       "is_main_branch": false,
@@ -171,7 +171,7 @@
       }
     },
     {
-      "id": "shop008",
+      "id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d",
       "name": "Circuit World Madurai - Goripalayam Branch",
       "code": "TN008",
       "is_main_branch": false,
@@ -196,7 +196,7 @@
       }
     },
     {
-      "id": "shop009",
+      "id": "b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e",
       "name": "Gadget King Salem - Town Hall Branch",
       "code": "TN009",
       "is_main_branch": false,
@@ -221,7 +221,7 @@
       }
     },
     {
-      "id": "shop010",
+      "id": "c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f",
       "name": "Electronica Trichy - Anna Nagar Branch",
       "code": "TN010",
       "is_main_branch": false,
@@ -248,7 +248,7 @@
   ],
   "items": [
     {
-      "id": "itm001",
+      "id": "d1e2f3a4-b5c6-4d7e-8f9a-0b1c2d3e4f5a",
       "name": "1kΩ Resistor 1/4W",
       "item_code": "R001",
       "category": "Electronic Components",
@@ -258,7 +258,7 @@
       "description": "Standard 1 kilo-ohm resistor with 1/4 watt power rating, used in electronic circuits."
     },
     {
-      "id": "itm002",
+      "id": "e2f3a4b5-c6d7-4e8f-9a0b-1c2d3e4f5a6b",
       "name": "100uF Electrolytic Capacitor",
       "item_code": "C001",
       "category": "Electronic Components",
@@ -268,7 +268,7 @@
       "description": "High-quality 100 microfarad electrolytic capacitor for power supply smoothing and filtering."
     },
     {
-      "id": "itm003",
+      "id": "f3a4b5c6-d7e8-4f9a-0b1c-2d3e4f5a6b7c",
       "name": "ATmega328P Microcontroller IC",
       "item_code": "IC001",
       "category": "Integrated Circuits",
@@ -278,7 +278,7 @@
       "description": "Popular 8-bit AVR microcontroller with 32KB flash memory, used in Arduino projects."
     },
     {
-      "id": "itm004",
+      "id": "a4b5c6d7-e8f9-4a0b-1c2d-3e4f5a6b7c8d",
       "name": "8Ω 5W Speaker",
       "item_code": "SP001",
       "category": "Audio Components",
@@ -288,7 +288,7 @@
       "description": "Compact 8 ohm 5-watt speaker suitable for DIY audio projects and small home systems."
     },
     {
-      "id": "itm005",
+      "id": "b5c6d7e8-f9a0-4b1c-2d3e-4f5a6b7c8d9e",
       "name": "Home Theater System 5.1 Channel",
       "item_code": "HT001",
       "category": "Home Audio",
@@ -298,7 +298,7 @@
       "description": "High-fidelity 5.1 channel home theater system with surround sound for immersive entertainment."
     },
     {
-      "id": "itm006",
+      "id": "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f",
       "name": "42\" LED Smart TV",
       "item_code": "TV001",
       "category": "Television",
@@ -308,7 +308,7 @@
       "description": "42-inch Full HD LED Smart TV with streaming apps and HDMI connectivity."
     },
     {
-      "id": "itm007",
+      "id": "d7e8f9a0-b1c2-4d3e-4f5a-6b7c8d9e0f1a",
       "name": "Arduino Uno R3 Board",
       "item_code": "ARD001",
       "category": "Development Boards",
@@ -318,7 +318,7 @@
       "description": "Microcontroller development board based on ATmega328P, perfect for DIY electronics projects."
     },
     {
-      "id": "itm008",
+      "id": "e8f9a0b1-c2d3-4e4f-5a6b-7c8d9e0f1a2b",
       "name": "Digital Multimeter",
       "item_code": "DMM001",
       "category": "Measurement Tools",
@@ -328,7 +328,7 @@
       "description": "Handheld digital multimeter with voltage, current, and resistance measurement capabilities."
     },
     {
-      "id": "itm009",
+      "id": "f9a0b1c2-d3e4-4f5a-6b7c-8d9e0f1a2b3c",
       "name": "5V 2A USB Power Adapter",
       "item_code": "PSU001",
       "category": "Power Supplies",
@@ -338,7 +338,7 @@
       "description": "Reliable USB wall adapter providing 5V 2A output for charging small electronic devices."
     },
     {
-      "id": "itm010",
+      "id": "a0b1c2d3-e4f5-4a6b-7c8d-9e0f1a2b3c4d",
       "name": "Bluetooth Wireless Earbuds",
       "item_code": "EB001",
       "category": "Audio",
@@ -350,7 +350,7 @@
   ],
   "inventory": [
     {
-      "id": "inv001",
+      "id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e",
       "shop_code": "TN001",
       "item_code": "R001",
       "price": 5,
@@ -359,7 +359,7 @@
       "status": 2
     },
     {
-      "id": "inv002",
+      "id": "c2d3e4f5-a6b7-4c8d-9e0f-1a2b3c4d5e6f",
       "shop_code": "TN001",
       "item_code": "C001",
       "price": 15,
@@ -368,7 +368,7 @@
       "status": 2
     },
     {
-      "id": "inv003",
+      "id": "d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a",
       "shop_code": "TN002",
       "item_code": "IC001",
       "price": 180,
@@ -377,7 +377,7 @@
       "status": 2
     },
     {
-      "id": "inv004",
+      "id": "e4f5a6b7-c8d9-4e0f-1a2b-3c4d5e6f7a8b",
       "shop_code": "TN002",
       "item_code": "SP001",
       "price": 450,
@@ -386,7 +386,7 @@
       "status": 2
     },
     {
-      "id": "inv005",
+      "id": "f5a6b7c8-d9e0-4f1a-2b3c-4d5e6f7a8b9c",
       "shop_code": "TN003",
       "item_code": "HT001",
       "price": 12000,
@@ -395,7 +395,7 @@
       "status": 2
     },
     {
-      "id": "inv006",
+      "id": "a6b7c8d9-e0f1-4a2b-3c4d-5e6f7a8b9c0d",
       "shop_code": "TN003",
       "item_code": "TV001",
       "price": 25000,
@@ -404,7 +404,7 @@
       "status": 2
     },
     {
-      "id": "inv007",
+      "id": "b7c8d9e0-f1a2-4b3c-4d5e-6f7a8b9c0d1e",
       "shop_code": "TN004",
       "item_code": "ARD001",
       "price": 1200,
@@ -413,7 +413,7 @@
       "status": 2
     },
     {
-      "id": "inv008",
+      "id": "c8d9e0f1-a2b3-4c4d-5e6f-7a8b9c0d1e2f",
       "shop_code": "TN004",
       "item_code": "DMM001",
       "price": 2500,
@@ -422,7 +422,7 @@
       "status": 2
     },
     {
-      "id": "inv009",
+      "id": "d9e0f1a2-b3c4-4d5e-6f7a-8b9c0d1e2f3a",
       "shop_code": "TN005",
       "item_code": "PSU001",
       "price": 300,
@@ -431,7 +431,7 @@
       "status": 2
     },
     {
-      "id": "inv010",
+      "id": "e0f1a2b3-c4d5-4e6f-7a8b-9c0d1e2f3a4b",
       "shop_code": "TN005",
       "item_code": "EB001",
       "price": 1500,
@@ -440,7 +440,7 @@
       "status": 2
     },
     {
-      "id": "inv011",
+      "id": "f1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c",
       "shop_code": "TN006",
       "item_code": "R001",
       "price": 6,
@@ -449,7 +449,7 @@
       "status": 1
     },
     {
-      "id": "inv012",
+      "id": "a2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d",
       "shop_code": "TN006",
       "item_code": "C001",
       "price": 16,
@@ -458,7 +458,7 @@
       "status": 1
     },
     {
-      "id": "inv013",
+      "id": "b3c4d5e6-f7a8-4b9c-0d1e-2f3a4b5c6d7e",
       "shop_code": "TN007",
       "item_code": "IC001",
       "price": 185,
@@ -467,7 +467,7 @@
       "status": 1
     },
     {
-      "id": "inv014",
+      "id": "c4d5e6f7-a8b9-4c0d-1e2f-3a4b5c6d7e8f",
       "shop_code": "TN007",
       "item_code": "SP001",
       "price": 460,
@@ -476,7 +476,7 @@
       "status": 1
     },
     {
-      "id": "inv015",
+      "id": "d5e6f7a8-b9c0-4d1e-2f3a-4b5c6d7e8f9a",
       "shop_code": "TN008",
       "item_code": "HT001",
       "price": 11800,
@@ -485,7 +485,7 @@
       "status": 1
     },
     {
-      "id": "inv016",
+      "id": "e6f7a8b9-c0d1-4e2f-3a4b-5c6d7e8f9a0b",
       "shop_code": "TN008",
       "item_code": "TV001",
       "price": 24800,
@@ -494,7 +494,7 @@
       "status": 1
     },
     {
-      "id": "inv017",
+      "id": "f7a8b9c0-d1e2-4f3a-4b5c-6d7e8f9a0b1c",
       "shop_code": "TN009",
       "item_code": "ARD001",
       "price": 1250,
@@ -503,7 +503,7 @@
       "status": 1
     },
     {
-      "id": "inv018",
+      "id": "a8b9c0d1-e2f3-4a4b-5c6d-7e8f9a0b1c2d",
       "shop_code": "TN009",
       "item_code": "DMM001",
       "price": 2550,
@@ -512,7 +512,7 @@
       "status": 1
     },
     {
-      "id": "inv019",
+      "id": "b9c0d1e2-f3a4-4b5c-6d7e-8f9a0b1c2d3e",
       "shop_code": "TN010",
       "item_code": "PSU001",
       "price": 310,
@@ -521,7 +521,7 @@
       "status": 1
     },
     {
-      "id": "inv020",
+      "id": "c0d1e2f3-a4b5-4c6d-7e8f-9a0b1c2d3e4f",
       "shop_code": "TN010",
       "item_code": "EB001",
       "price": 1550,

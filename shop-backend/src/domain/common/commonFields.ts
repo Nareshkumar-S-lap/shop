@@ -13,7 +13,6 @@ export const contactFields = {
   contact_role: { type: String },
 };
 
-
 export const baseFields = {
   id: { type: String },
   isActive: { type: Boolean, default: true },

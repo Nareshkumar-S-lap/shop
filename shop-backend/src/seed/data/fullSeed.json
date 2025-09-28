@@ -1,21 +1,21 @@
 {
   "shops": [
     {
-      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-      "name": "Electronix Central",
-      "code": "EL001",
+      "id": "shop001",
+      "name": "Techno Hub Chennai",
+      "code": "TN001",
       "is_main_branch": true,
       "address": {
-        "line1": "100 Tech Street",
-        "city": "Bangalore",
-        "state": "KA",
-        "postal_code": "560001",
+        "line1": "12 TTK Road",
+        "city": "Chennai",
+        "state": "TN",
+        "postal_code": "600018",
         "country": "India"
       },
       "contact": {
-        "phone": "+91-9998887776",
-        "email": "central@electronix.com",
-        "contact_name": "Arjun Kumar",
+        "phone": "+91-9840012345",
+        "email": "chennai@technohub.com",
+        "contact_name": "Raghav Menon",
         "contact_role": "Manager"
       },
       "metadata": {
@@ -25,21 +25,21 @@
       }
     },
     {
-      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d480",
-      "name": "Electronix South",
-      "code": "EL003",
+      "id": "shop002",
+      "name": "ElectroMart Coimbatore",
+      "code": "TN002",
       "is_main_branch": true,
       "address": {
-        "line1": "200 Tech Park",
-        "city": "Bangalore",
-        "state": "KA",
-        "postal_code": "560010",
+        "line1": "45 Avinashi Road",
+        "city": "Coimbatore",
+        "state": "TN",
+        "postal_code": "641018",
         "country": "India"
       },
       "contact": {
-        "phone": "+91-9998887778",
-        "email": "south@electronix.com",
-        "contact_name": "Rohit Sharma",
+        "phone": "+91-9894012345",
+        "email": "coimbatore@electromart.com",
+        "contact_name": "Priya Raj",
         "contact_role": "Manager"
       },
       "metadata": {
@@ -49,139 +49,485 @@
       }
     },
     {
-      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d481",
-      "name": "Electronix Mall Branch",
-      "code": "EL002",
-      "is_main_branch": false,
-      "parent_shop_code": "EL001",
+      "id": "shop003",
+      "name": "Circuit World Madurai",
+      "code": "TN003",
+      "is_main_branch": true,
       "address": {
-        "line1": "50 Mall Road",
-        "city": "Bangalore",
-        "state": "KA",
-        "postal_code": "560002",
+        "line1": "78 Bye-Pass Road",
+        "city": "Madurai",
+        "state": "TN",
+        "postal_code": "625010",
         "country": "India"
       },
       "contact": {
-        "phone": "+91-9998887777",
-        "email": "mall@electronix.com",
-        "contact_name": "Priya Sharma",
+        "phone": "+91-9443012345",
+        "email": "madurai@circuitworld.com",
+        "contact_name": "Karthik S",
+        "contact_role": "Manager"
+      },
+      "metadata": {
+        "opening_time": "10:00",
+        "closing_time": "21:00",
+        "holiday_list": [0]
+      }
+    },
+    {
+      "id": "shop004",
+      "name": "Gadget King Salem",
+      "code": "TN004",
+      "is_main_branch": true,
+      "address": {
+        "line1": "32 New Fair Road",
+        "city": "Salem",
+        "state": "TN",
+        "postal_code": "636007",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9876012345",
+        "email": "salem@gadgetking.com",
+        "contact_name": "Anitha R",
+        "contact_role": "Manager"
+      },
+      "metadata": {
+        "opening_time": "09:30",
+        "closing_time": "20:30",
+        "holiday_list": [0]
+      }
+    },
+    {
+      "id": "shop005",
+      "name": "Electronica Trichy",
+      "code": "TN005",
+      "is_main_branch": true,
+      "address": {
+        "line1": "21 Thillai Nagar",
+        "city": "Tiruchirappalli",
+        "state": "TN",
+        "postal_code": "620018",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9867012345",
+        "email": "trichy@electronica.com",
+        "contact_name": "Vikram P",
+        "contact_role": "Manager"
+      },
+      "metadata": {
+        "opening_time": "10:00",
+        "closing_time": "21:00",
+        "holiday_list": [0]
+      }
+    },
+    {
+      "id": "shop006",
+      "name": "Techno Hub Chennai - OMR Branch",
+      "code": "TN006",
+      "is_main_branch": false,
+      "parent_shop_code": "TN001",
+      "address": {
+        "line1": "88 OMR Road",
+        "city": "Chennai",
+        "state": "TN",
+        "postal_code": "600097",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9840098765",
+        "email": "omr@technohub.com",
+        "contact_name": "Shalini M",
         "contact_role": "Branch Manager"
       },
       "metadata": {
         "opening_time": "11:00",
         "closing_time": "20:00",
-        "holiday_list": [0,6]
+        "holiday_list": [0, 6]
       }
     },
     {
-      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d482",
-      "name": "Electronix South Branch",
-      "code": "EL004",
+      "id": "shop007",
+      "name": "ElectroMart Coimbatore - Peelamedu Branch",
+      "code": "TN007",
       "is_main_branch": false,
-      "parent_shop_code": "EL003",
+      "parent_shop_code": "TN002",
       "address": {
-        "line1": "45 Tech Avenue",
-        "city": "Bangalore",
-        "state": "KA",
-        "postal_code": "560011",
+        "line1": "56 Peelamedu",
+        "city": "Coimbatore",
+        "state": "TN",
+        "postal_code": "641004",
         "country": "India"
       },
       "contact": {
-        "phone": "+91-9998887779",
-        "email": "southbranch@electronix.com",
-        "contact_name": "Sneha R",
+        "phone": "+91-9894054321",
+        "email": "peelamedu@electromart.com",
+        "contact_name": "Ramesh K",
         "contact_role": "Branch Manager"
       },
       "metadata": {
         "opening_time": "10:30",
         "closing_time": "19:30",
-        "holiday_list": [0,6]
+        "holiday_list": [0, 6]
+      }
+    },
+    {
+      "id": "shop008",
+      "name": "Circuit World Madurai - Goripalayam Branch",
+      "code": "TN008",
+      "is_main_branch": false,
+      "parent_shop_code": "TN003",
+      "address": {
+        "line1": "14 Goripalayam Street",
+        "city": "Madurai",
+        "state": "TN",
+        "postal_code": "625001",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9443034567",
+        "email": "goripalayam@circuitworld.com",
+        "contact_name": "Meena R",
+        "contact_role": "Branch Manager"
+      },
+      "metadata": {
+        "opening_time": "10:00",
+        "closing_time": "19:30",
+        "holiday_list": [0, 6]
+      }
+    },
+    {
+      "id": "shop009",
+      "name": "Gadget King Salem - Town Hall Branch",
+      "code": "TN009",
+      "is_main_branch": false,
+      "parent_shop_code": "TN004",
+      "address": {
+        "line1": "9 Town Hall Road",
+        "city": "Salem",
+        "state": "TN",
+        "postal_code": "636007",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9876054321",
+        "email": "townhall@gadgetking.com",
+        "contact_name": "Vasanth K",
+        "contact_role": "Branch Manager"
+      },
+      "metadata": {
+        "opening_time": "10:30",
+        "closing_time": "19:30",
+        "holiday_list": [0, 6]
+      }
+    },
+    {
+      "id": "shop010",
+      "name": "Electronica Trichy - Anna Nagar Branch",
+      "code": "TN010",
+      "is_main_branch": false,
+      "parent_shop_code": "TN005",
+      "address": {
+        "line1": "18 Anna Nagar",
+        "city": "Tiruchirappalli",
+        "state": "TN",
+        "postal_code": "620008",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9867043210",
+        "email": "annanagar@electronica.com",
+        "contact_name": "Divya S",
+        "contact_role": "Branch Manager"
+      },
+      "metadata": {
+        "opening_time": "11:00",
+        "closing_time": "20:00",
+        "holiday_list": [0, 6]
       }
     }
   ],
   "items": [
     {
-      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d483",
-      "name": "Smartphone XYZ",
+      "id": "itm001",
+      "name": "1kΩ Resistor 1/4W",
+      "item_code": "R001",
+      "category": "Electronic Components",
+      "brand": "Ohmite",
+      "unit": "piece",
+      "tags": ["resistor", "component", "electronics"],
+      "description": "Standard 1 kilo-ohm resistor with 1/4 watt power rating, used in electronic circuits."
+    },
+    {
+      "id": "itm002",
+      "name": "100uF Electrolytic Capacitor",
+      "item_code": "C001",
+      "category": "Electronic Components",
+      "brand": "Panasonic",
+      "unit": "piece",
+      "tags": ["capacitor", "component", "electronics"],
+      "description": "High-quality 100 microfarad electrolytic capacitor for power supply smoothing and filtering."
+    },
+    {
+      "id": "itm003",
+      "name": "ATmega328P Microcontroller IC",
+      "item_code": "IC001",
+      "category": "Integrated Circuits",
+      "brand": "Microchip",
+      "unit": "piece",
+      "tags": ["IC", "microcontroller", "electronics"],
+      "description": "Popular 8-bit AVR microcontroller with 32KB flash memory, used in Arduino projects."
+    },
+    {
+      "id": "itm004",
+      "name": "8Ω 5W Speaker",
       "item_code": "SP001",
-      "category": "Mobile Phones",
-      "brand": "TechBrand",
+      "category": "Audio Components",
+      "brand": "JBL",
       "unit": "piece",
-      "tags": ["mobile", "smartphone"]
+      "tags": ["speaker", "audio", "component"],
+      "description": "Compact 8 ohm 5-watt speaker suitable for DIY audio projects and small home systems."
     },
     {
-      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d484",
-      "name": "Laptop ABC",
-      "item_code": "LP001",
-      "category": "Laptops",
-      "brand": "CompTech",
-      "unit": "piece",
-      "tags": ["laptop", "computer"]
+      "id": "itm005",
+      "name": "Home Theater System 5.1 Channel",
+      "item_code": "HT001",
+      "category": "Home Audio",
+      "brand": "Sony",
+      "unit": "set",
+      "tags": ["home theater", "audio", "electronics"],
+      "description": "High-fidelity 5.1 channel home theater system with surround sound for immersive entertainment."
     },
     {
-      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d485",
-      "name": "Wireless Earbuds",
+      "id": "itm006",
+      "name": "42\" LED Smart TV",
+      "item_code": "TV001",
+      "category": "Television",
+      "brand": "Samsung",
+      "unit": "piece",
+      "tags": ["TV", "smart TV", "electronics"],
+      "description": "42-inch Full HD LED Smart TV with streaming apps and HDMI connectivity."
+    },
+    {
+      "id": "itm007",
+      "name": "Arduino Uno R3 Board",
+      "item_code": "ARD001",
+      "category": "Development Boards",
+      "brand": "Arduino",
+      "unit": "piece",
+      "tags": ["arduino", "development board", "electronics"],
+      "description": "Microcontroller development board based on ATmega328P, perfect for DIY electronics projects."
+    },
+    {
+      "id": "itm008",
+      "name": "Digital Multimeter",
+      "item_code": "DMM001",
+      "category": "Measurement Tools",
+      "brand": "Fluke",
+      "unit": "piece",
+      "tags": ["multimeter", "tester", "electronics"],
+      "description": "Handheld digital multimeter with voltage, current, and resistance measurement capabilities."
+    },
+    {
+      "id": "itm009",
+      "name": "5V 2A USB Power Adapter",
+      "item_code": "PSU001",
+      "category": "Power Supplies",
+      "brand": "Anker",
+      "unit": "piece",
+      "tags": ["adapter", "charger", "electronics"],
+      "description": "Reliable USB wall adapter providing 5V 2A output for charging small electronic devices."
+    },
+    {
+      "id": "itm010",
+      "name": "Bluetooth Wireless Earbuds",
       "item_code": "EB001",
       "category": "Audio",
-      "brand": "SoundMax",
-      "unit": "piece",
-      "tags": ["audio", "earbuds"]
-    },
-    {
-      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d486",
-      "name": "LED Monitor 24\"",
-      "item_code": "MON001",
-      "category": "Computer Accessories",
-      "brand": "ViewTech",
-      "unit": "piece",
-      "tags": ["monitor", "display"]
-    },
-    {
-      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d487",
-      "name": "Gaming Keyboard",
-      "item_code": "KB001",
-      "category": "Computer Accessories",
-      "brand": "GamePro",
-      "unit": "piece",
-      "tags": ["keyboard", "gaming"]
+      "brand": "Boat",
+      "unit": "pair",
+      "tags": ["earbuds", "audio", "wireless"],
+      "description": "High-quality Bluetooth earbuds with noise cancellation and long battery life for daily use."
     }
   ],
   "inventory": [
     {
-      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d488",
-      "shop_code": "EL001",
-      "item_code": "SP001",
-      "price": 25000,
-      "quantity": 50,
+      "id": "inv001",
+      "shop_code": "TN001",
+      "item_code": "R001",
+      "price": 5,
+      "quantity": 500,
+      "reorder_level": 50,
+      "status": 2
+    },
+    {
+      "id": "inv002",
+      "shop_code": "TN001",
+      "item_code": "C001",
+      "price": 15,
+      "quantity": 200,
+      "reorder_level": 20,
+      "status": 2
+    },
+    {
+      "id": "inv003",
+      "shop_code": "TN002",
+      "item_code": "IC001",
+      "price": 180,
+      "quantity": 100,
       "reorder_level": 10,
       "status": 2
     },
     {
-      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d489",
-      "shop_code": "EL002",
+      "id": "inv004",
+      "shop_code": "TN002",
       "item_code": "SP001",
-      "price": 26000,
+      "price": 450,
+      "quantity": 50,
+      "reorder_level": 5,
+      "status": 2
+    },
+    {
+      "id": "inv005",
+      "shop_code": "TN003",
+      "item_code": "HT001",
+      "price": 12000,
+      "quantity": 10,
+      "reorder_level": 2,
+      "status": 2
+    },
+    {
+      "id": "inv006",
+      "shop_code": "TN003",
+      "item_code": "TV001",
+      "price": 25000,
+      "quantity": 8,
+      "reorder_level": 2,
+      "status": 2
+    },
+    {
+      "id": "inv007",
+      "shop_code": "TN004",
+      "item_code": "ARD001",
+      "price": 1200,
+      "quantity": 30,
+      "reorder_level": 5,
+      "status": 2
+    },
+    {
+      "id": "inv008",
+      "shop_code": "TN004",
+      "item_code": "DMM001",
+      "price": 2500,
+      "quantity": 15,
+      "reorder_level": 5,
+      "status": 2
+    },
+    {
+      "id": "inv009",
+      "shop_code": "TN005",
+      "item_code": "PSU001",
+      "price": 300,
+      "quantity": 100,
+      "reorder_level": 20,
+      "status": 2
+    },
+    {
+      "id": "inv010",
+      "shop_code": "TN005",
+      "item_code": "EB001",
+      "price": 1500,
+      "quantity": 40,
+      "reorder_level": 10,
+      "status": 2
+    },
+    {
+      "id": "inv011",
+      "shop_code": "TN006",
+      "item_code": "R001",
+      "price": 6,
+      "quantity": 300,
+      "reorder_level": 50,
+      "status": 1
+    },
+    {
+      "id": "inv012",
+      "shop_code": "TN006",
+      "item_code": "C001",
+      "price": 16,
+      "quantity": 150,
+      "reorder_level": 20,
+      "status": 1
+    },
+    {
+      "id": "inv013",
+      "shop_code": "TN007",
+      "item_code": "IC001",
+      "price": 185,
+      "quantity": 50,
+      "reorder_level": 10,
+      "status": 1
+    },
+    {
+      "id": "inv014",
+      "shop_code": "TN007",
+      "item_code": "SP001",
+      "price": 460,
+      "quantity": 30,
+      "reorder_level": 5,
+      "status": 1
+    },
+    {
+      "id": "inv015",
+      "shop_code": "TN008",
+      "item_code": "HT001",
+      "price": 11800,
+      "quantity": 5,
+      "reorder_level": 2,
+      "status": 1
+    },
+    {
+      "id": "inv016",
+      "shop_code": "TN008",
+      "item_code": "TV001",
+      "price": 24800,
+      "quantity": 3,
+      "reorder_level": 2,
+      "status": 1
+    },
+    {
+      "id": "inv017",
+      "shop_code": "TN009",
+      "item_code": "ARD001",
+      "price": 1250,
+      "quantity": 20,
+      "reorder_level": 5,
+      "status": 1
+    },
+    {
+      "id": "inv018",
+      "shop_code": "TN009",
+      "item_code": "DMM001",
+      "price": 2550,
+      "quantity": 10,
+      "reorder_level": 5,
+      "status": 1
+    },
+    {
+      "id": "inv019",
+      "shop_code": "TN010",
+      "item_code": "PSU001",
+      "price": 310,
+      "quantity": 60,
+      "reorder_level": 20,
+      "status": 1
+    },
+    {
+      "id": "inv020",
+      "shop_code": "TN010",
+      "item_code": "EB001",
+      "price": 1550,
       "quantity": 20,
       "reorder_level": 10,
       "status": 1
-    },
-    {
-      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d490",
-      "shop_code": "EL001",
-      "item_code": "LP001",
-      "price": 55000,
-      "quantity": 5,
-      "reorder_level": 10,
-      "status": 1
-    },
-    {
-      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d491",
-      "shop_code": "EL002",
-      "item_code": "LP001",
-      "price": 56000,
-      "quantity": 0,
-      "reorder_level": 10,
-      "status": 0
     }
   ]
 }

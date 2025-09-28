@@ -1,8 +1,7 @@
-import mongoose, { Schema } from "mongoose";
-import {  baseFields, baseSchemaOptions } from "@domain/common/commonFields";
-import {  IItem } from "@domain/common/modelTypes";
-import { COLLECTIONS } from "@common/constants/constant";
-
+import mongoose, { Schema } from 'mongoose';
+import { baseFields, baseSchemaOptions } from '@domain/common/commonFields';
+import { IItem } from '@domain/common/modelTypes';
+import { COLLECTIONS } from '@common/constants/constant';
 
 const ItemSchema = new Schema<IItem>(
   {
@@ -15,7 +14,7 @@ const ItemSchema = new Schema<IItem>(
     unit: { type: String, required: true },
     tags: [{ type: String }],
   },
-  baseSchemaOptions
+  baseSchemaOptions,
 );
 
 export const Item = mongoose.model<IItem>(COLLECTIONS.ITEM, ItemSchema);

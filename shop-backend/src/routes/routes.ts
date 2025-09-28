@@ -1,6 +1,6 @@
 import { assembleRoutes } from '@common/route/assembleRoutes';
 import HealthRoute from '@modules/health/healthRoute';
-
-const routes = assembleRoutes(HealthRoute);
+import ShopRoute from '@modules/shop/shopRoute';
+const routes = assembleRoutes(HealthRoute, ShopRoute);
 
 export default routes;

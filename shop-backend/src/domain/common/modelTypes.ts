@@ -1,6 +1,6 @@
 import { Document, Types } from "mongoose";
 import { addressFields, contactFields } from "./commonFields";
-import { InventoryStatus } from "@common/enum/enums";
+import { InventoryStatus, WeekDays } from "@common/enum/enums";
 
 
 export interface IBase extends Document {
@@ -21,7 +21,7 @@ export interface IShop extends IBase {
         opening_time: string;
         closing_time: string;
         established_year?: number;
-        holiday_list: number[];
+        holiday_list: WeekDays[];
     };
 }
 export interface IItem extends IBase {

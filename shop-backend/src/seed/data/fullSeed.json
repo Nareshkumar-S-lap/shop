@@ -1,0 +1,187 @@
+{
+  "shops": [
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "name": "Electronix Central",
+      "code": "EL001",
+      "is_main_branch": true,
+      "address": {
+        "line1": "100 Tech Street",
+        "city": "Bangalore",
+        "state": "KA",
+        "postal_code": "560001",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9998887776",
+        "email": "central@electronix.com",
+        "contact_name": "Arjun Kumar",
+        "contact_role": "Manager"
+      },
+      "metadata": {
+        "opening_time": "10:00",
+        "closing_time": "21:00",
+        "holiday_list": [0]
+      }
+    },
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d480",
+      "name": "Electronix South",
+      "code": "EL003",
+      "is_main_branch": true,
+      "address": {
+        "line1": "200 Tech Park",
+        "city": "Bangalore",
+        "state": "KA",
+        "postal_code": "560010",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9998887778",
+        "email": "south@electronix.com",
+        "contact_name": "Rohit Sharma",
+        "contact_role": "Manager"
+      },
+      "metadata": {
+        "opening_time": "09:30",
+        "closing_time": "20:30",
+        "holiday_list": [0]
+      }
+    },
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d481",
+      "name": "Electronix Mall Branch",
+      "code": "EL002",
+      "is_main_branch": false,
+      "parent_shop_code": "EL001",
+      "address": {
+        "line1": "50 Mall Road",
+        "city": "Bangalore",
+        "state": "KA",
+        "postal_code": "560002",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9998887777",
+        "email": "mall@electronix.com",
+        "contact_name": "Priya Sharma",
+        "contact_role": "Branch Manager"
+      },
+      "metadata": {
+        "opening_time": "11:00",
+        "closing_time": "20:00",
+        "holiday_list": [0,6]
+      }
+    },
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d482",
+      "name": "Electronix South Branch",
+      "code": "EL004",
+      "is_main_branch": false,
+      "parent_shop_code": "EL003",
+      "address": {
+        "line1": "45 Tech Avenue",
+        "city": "Bangalore",
+        "state": "KA",
+        "postal_code": "560011",
+        "country": "India"
+      },
+      "contact": {
+        "phone": "+91-9998887779",
+        "email": "southbranch@electronix.com",
+        "contact_name": "Sneha R",
+        "contact_role": "Branch Manager"
+      },
+      "metadata": {
+        "opening_time": "10:30",
+        "closing_time": "19:30",
+        "holiday_list": [0,6]
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d483",
+      "name": "Smartphone XYZ",
+      "item_code": "SP001",
+      "category": "Mobile Phones",
+      "brand": "TechBrand",
+      "unit": "piece",
+      "tags": ["mobile", "smartphone"]
+    },
+    {
+      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d484",
+      "name": "Laptop ABC",
+      "item_code": "LP001",
+      "category": "Laptops",
+      "brand": "CompTech",
+      "unit": "piece",
+      "tags": ["laptop", "computer"]
+    },
+    {
+      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d485",
+      "name": "Wireless Earbuds",
+      "item_code": "EB001",
+      "category": "Audio",
+      "brand": "SoundMax",
+      "unit": "piece",
+      "tags": ["audio", "earbuds"]
+    },
+    {
+      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d486",
+      "name": "LED Monitor 24\"",
+      "item_code": "MON001",
+      "category": "Computer Accessories",
+      "brand": "ViewTech",
+      "unit": "piece",
+      "tags": ["monitor", "display"]
+    },
+    {
+      "id": "b47ac10b-58cc-4372-a567-0e02b2c3d487",
+      "name": "Gaming Keyboard",
+      "item_code": "KB001",
+      "category": "Computer Accessories",
+      "brand": "GamePro",
+      "unit": "piece",
+      "tags": ["keyboard", "gaming"]
+    }
+  ],
+  "inventory": [
+    {
+      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d488",
+      "shop_code": "EL001",
+      "item_code": "SP001",
+      "price": 25000,
+      "quantity": 50,
+      "reorder_level": 10,
+      "status": 2
+    },
+    {
+      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d489",
+      "shop_code": "EL002",
+      "item_code": "SP001",
+      "price": 26000,
+      "quantity": 20,
+      "reorder_level": 10,
+      "status": 1
+    },
+    {
+      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d490",
+      "shop_code": "EL001",
+      "item_code": "LP001",
+      "price": 55000,
+      "quantity": 5,
+      "reorder_level": 10,
+      "status": 1
+    },
+    {
+      "id": "c47ac10b-58cc-4372-a567-0e02b2c3d491",
+      "shop_code": "EL002",
+      "item_code": "LP001",
+      "price": 56000,
+      "quantity": 0,
+      "reorder_level": 10,
+      "status": 0
+    }
+  ]
+}

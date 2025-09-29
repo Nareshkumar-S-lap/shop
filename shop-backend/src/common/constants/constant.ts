@@ -22,5 +22,3 @@ export const JOIN_COLLECTIONS_FIELD = {
   SHOP_DETAIL: 'shop_detail',
   ITEM_DETAIL: 'item_detail',
 };
-
-export const DATE_FORMAT = 'DD-MM-YYYY';

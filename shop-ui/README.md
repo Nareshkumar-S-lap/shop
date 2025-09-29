@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shop Frontend (UI)
 
-## Getting Started
+This directory contains the **frontend UI** for the Shop application, built with **React[Next.js]**.
 
-First, run the development server:
+---
+
+## Prerequisites
+
+* Node.js 18 or higher
+* npm, yarn, or pnpm package manager
+
+---
+
+## Setup Instructions
+
+1. **Install dependencies**
+
+```bash
+npm install
+```
+
+2. **Create a `.env` file** in the `frontend` directory with the following variable:
+
+```dotenv
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000/api/1.0.0
+```
+
+> ⚠️ Do not commit `.env` to version control as it contains environment-specific configuration.
+
+3. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Access the frontend**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> The frontend automatically picks up the API base URL from `NEXT_PUBLIC_API_BASE_URL`.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Build and Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Build the production version**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+2. **Start the production server**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The production frontend will use the same `NEXT_PUBLIC_API_BASE_URL` environment variable for API requests.
+
+---
+
+## Notes
+
+* You can change the API base URL in `.env` if the backend runs on a different host or port.
+* Next.js hot-reloads on changes to the source code.
+* Ensure the backend API is running and accessible before starting the frontend.

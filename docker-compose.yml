@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./shop-backend
+    ports:
+      - "3000:3000"          # Host port 3000 → container port 3000
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.0         # Bind inside container to all interfaces
+    env_file:
+      - ./shop-backend/.env  # Load environment variables
+    restart: unless-stopped
+    networks:
+      - shopnet
+
+  ui:
+    build: ./shop-ui
+    ports:
+      - "4000:4000"          # Host port 4000 → container port 4000
+    env_file:
+      - ./shop-ui/.env  # Load environment variables
+    restart: unless-stopped
+    networks:
+      - shopnet
+
+networks:
+  shopnet:
+    driver: bridge             # All services communicate inside this network

@@ -3,37 +3,45 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies first (cache friendly)
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy only what’s needed for build (App Router inside src/)
-COPY next.config.ts ./
-COPY tsconfig.json ./
-COPY public ./public
+# Copy source files
+COPY next.config.ts tsconfig.json ./
 COPY src ./src
 
-# Build standalone app
+# Build-time environment variables
+ARG NEXT_PUBLIC_API_BASE_URL
+ARG NODE_ENV
+ARG UI_PORT
+
+ENV NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+ENV NODE_ENV=${NODE_ENV}
+ENV UI_PORT=${UI_PORT}
+ENV HOST=0.0.0.0
+
+# Build the standalone Next.js app
 RUN npm run build
 
-
-# --- Production (standalone) ---
+# --- Production (runner) ---
 FROM node:18-alpine AS runner
 
 WORKDIR /app
-# Copy only the build artifacts
+
+# Copy build artifacts
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./
 
-# (optional) keep package.json if telemetry / tooling / version reads
-COPY --from=builder /app/package.json ./ 
+# Runtime environment
+ENV NODE_ENV=${NODE_ENV}
+ENV UI_PORT=${UI_PORT}
+ENV NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL}
+ENV HOST=0.0.0.0
 
-ENV NODE_ENV=production
-ENV PORT=4000
-ENV HOSTNAME=0.0.0.0
+# Expose container port
+EXPOSE ${UI_PORT}
 
-EXPOSE 4000
-CMD ["npm", "run", "stand:start"]
-
-
+# Start Next.js using npm script
+CMD ["npm", "run", "start:stand"]

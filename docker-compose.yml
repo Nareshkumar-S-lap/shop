@@ -1,29 +1,34 @@
-version: '3.8'
+
 
 services:
   backend:
-    build: ./shop-backend
+    build:
+      context: ./shop-backend
+      args:
+        MONGO_URI: ${MONGO_URI}
+        DB_NAME: ${DB_NAME}
+        PORT: ${PORT}
     ports:
-      - "3000:3000"          # Host port 3000 → container port 3000
-    environment:
-      - PORT=3000
-      - HOST=0.0.0.0         # Bind inside container to all interfaces
-    env_file:
-      - ./shop-backend/.env  # Load environment variables
+      - "${PORT}:${PORT}"
     restart: unless-stopped
     networks:
       - shopnet
 
   ui:
-    build: ./shop-ui
+    build:
+      context: ./shop-ui
+      args:
+        NODE_VERSION: 18-alpine
+        NODE_ENV: production
+        UI_PORT: ${UI_PORT}
+        HOSTNAME: 0.0.0.0
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL} 
     ports:
-      - "4000:4000"          # Host port 4000 → container port 4000
-    env_file:
-      - ./shop-ui/.env  # Load environment variables
+      - "${UI_PORT}:${UI_PORT}"
     restart: unless-stopped
     networks:
       - shopnet
 
 networks:
   shopnet:
-    driver: bridge             # All services communicate inside this network
+    driver: bridge

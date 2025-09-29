@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "app": {
     "host": "0.0.0.0",
-    "name": "Assesment-Task-Shop-Service",
+    "name": "Assessment-Task-Shop-Service",
     "logLevel": "info",
     "domains": {
       "allowed": ["*"]
